@@ -4,7 +4,7 @@ from config import Config
 
 class SafeConnection:
     """
-    Wrapper agar PyMySQL bisa menerima panggilan cursor(dictionary=True) 
+    Wrapper agar PyMySQL bisa menerima panggilan cursor(dictionary=True)
     tanpa menyebabkan TypeError.
     """
     def __init__(self, raw_conn):
@@ -25,7 +25,7 @@ class SafeConnection:
 
 def get_connection():
     """
-    Membuat koneksi ke database MySQL Aiven.
+    Membuat koneksi ke database MySQL Aiven dengan SSL.
     """
     try:
         connection = pymysql.connect(
@@ -34,9 +34,10 @@ def get_connection():
             user=Config.USER,
             password=Config.PASSWORD,
             database=Config.DATABASE,
-            autocommit=True
+            autocommit=True,
+            ssl={"ssl_mode": "REQUIRED"}  # <-- KUNCI
         )
         return SafeConnection(connection)
     except Exception as e:
         print(f"Gagal terhubung ke database: {e}")
-        return None
+        raise e
