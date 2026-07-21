@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Edit KRS
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+
+<div class="col-md-8 mx-auto">
+
+<div class="card shadow">
+
+<div class="card-header bg-warning">
+
+<h4 class="mb-0">
+
+Edit Data KRS
+
+</h4>
+
+</div>
+
+<div class="card-body">
+
+<form
+action="{{ url_for('krs.update_krs', id=krs.id) }}"
+method="POST">
+
+<div class="mb-3">
+
+<label class="form-label">
+
+Mahasiswa
+
+</label>
+
+<select
+name="nim"
+class="form-select"
+required>
+
+{% for m in mahasiswa %}
+
+<option
+value="{{ m.nim }}"
+{% if m.nim == krs.nim %}
+selected
+{% endif %}>
+
+{{ m.nim }} -
+{{ m.nama }}
+
+</option>
+
+{% endfor %}
+
+</select>
+
+</div>
+
+<div class="mb-3">
+
+<label class="form-label">
+
+Mata Kuliah
+
+</label>
+
+<select
+name="kode"
+class="form-select"
+required>
+
+{% for mk in matakuliah %}
+
+<option
+value="{{ mk.kode }}"
+{% if mk.kode == krs.kode %}
+selected
+{% endif %}>
+
+{{ mk.kode }} -
+{{ mk.nama_mk }}
+({{ mk.sks }} SKS)
+
+</option>
+
+{% endfor %}
+
+</select>
+
+</div>
+
+<hr>
+
+<button
+class="btn btn-success">
+
+Update
+
+</button>
+
+<a
+href="{{ url_for('krs.krs') }}"
+class="btn btn-secondary">
+
+Kembali
+
+</a>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+{% endblock %}
