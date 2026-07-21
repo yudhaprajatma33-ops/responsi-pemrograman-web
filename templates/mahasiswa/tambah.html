@@ -1,0 +1,158 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Tambah Mahasiswa
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+
+    <div class="col-md-8 mx-auto">
+
+        <div class="card shadow">
+
+            <div class="card-header custom-card-header">
+
+                <h4 class="mb-0">
+
+                    Tambah Data Mahasiswa
+
+                </h4>
+
+            </div>
+
+            <div class="card-body">
+
+                <form
+                    action="{{ url_for('mahasiswa.simpan_mahasiswa') }}"
+                    method="POST">
+
+                    <!-- NIM -->
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+
+                            NIM
+
+                        </label>
+
+                        <input
+                            type="text"
+                            name="nim"
+                            class="form-control"
+                            placeholder="Masukkan NIM"
+                            required>
+
+                    </div>
+
+                    <!-- Nama -->
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+
+                            Nama Mahasiswa
+
+                        </label>
+
+                        <input
+                            type="text"
+                            name="nama"
+                            class="form-control"
+                            placeholder="Masukkan Nama Mahasiswa"
+                            required>
+
+                    </div>
+
+                    <!-- Email -->
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+
+                            Email
+
+                        </label>
+
+                        <input
+                            type="email"
+                            name="email"
+                            class="form-control"
+                            placeholder="Masukkan Email">
+
+                    </div>
+
+                    <!-- Program Studi -->
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+
+                            Program Studi
+
+                        </label>
+
+                        <select
+                            name="prodi_id"
+                            class="form-select"
+                            required>
+
+                            <option value="">
+
+                                -- Pilih Program Studi --
+
+                            </option>
+
+                            {% for p in prodi %}
+
+                            <option value="{{ p.id }}">
+
+                                {{ p.nama_prodi }}
+
+                            </option>
+
+                            {% endfor %}
+
+                        </select>
+
+                    </div>
+
+                    <hr>
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary">
+
+                        Simpan
+
+                    </button>
+
+                    <a
+                        href="{{ url_for('mahasiswa.mahasiswa') }}"
+                        class="btn btn-secondary">
+
+                        Kembali
+
+                    </a>
+
+                    <button
+                        type="reset"
+                        class="btn btn-warning">
+
+                        Reset
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

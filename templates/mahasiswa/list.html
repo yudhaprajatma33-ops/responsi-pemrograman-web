@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Data Mahasiswa
+{% endblock %}
+
+{% block content %}
+
+<div class="card shadow">
+
+    <div class="card-header custom-card-header">
+
+        <div class="d-flex justify-content-between align-items-center">
+
+            <h4 class="mb-0">
+
+                Data Mahasiswa
+
+            </h4>
+
+            <a
+                href="{{ url_for('mahasiswa.tambah_mahasiswa') }}"
+                class="btn btn-light">
+
+                Tambah Mahasiswa
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="card-body">
+
+        <table class="table table-bordered table-hover">
+
+            <thead class="table-light">
+
+                <tr>
+
+                    <th width="150">
+
+                        NIM
+
+                    </th>
+
+                    <th>
+
+                        Nama Mahasiswa
+
+                    </th>
+
+                    <th>
+
+                        Email
+
+                    </th>
+
+                    <th>
+
+                        Program Studi
+
+                    </th>
+
+                    <th width="180">
+
+                        Aksi
+
+                    </th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for m in mahasiswa %}
+
+                <tr>
+
+                    <td>
+
+                        {{ m.nim }}
+
+                    </td>
+
+                    <td>
+
+                        {{ m.nama }}
+
+                    </td>
+
+                    <td>
+
+                        {{ m.email }}
+
+                    </td>
+
+                    <td>
+
+                        {{ m.nama_prodi }}
+
+                    </td>
+
+                    <td>
+
+                        <a
+                            href="{{ url_for('mahasiswa.edit_mahasiswa', nim=m.nim) }}"
+                            class="btn btn-warning btn-sm">
+
+                            Edit
+
+                        </a>
+
+                        <a
+                            href="{{ url_for('mahasiswa.hapus_mahasiswa', nim=m.nim) }}"
+                            class="btn btn-danger btn-sm"
+                            onclick="return confirm('Hapus data mahasiswa ini?')">
+
+                            Hapus
+
+                        </a>
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+{% endblock %}
