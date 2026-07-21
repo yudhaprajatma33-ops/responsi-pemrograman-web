@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Tambah Program Studi
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+
+    <div class="col-md-6 mx-auto">
+
+        <div class="card shadow">
+
+            <div class="card-header custom-card-header">
+
+                <h4 class="mb-0">
+
+                    Tambah Program Studi
+
+                </h4>
+
+            </div>
+
+            <div class="card-body">
+
+                <form
+                    action="{{ url_for('prodi.simpan_prodi') }}"
+                    method="POST">
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+
+                            Nama Program Studi
+
+                        </label>
+
+                        <input
+                            type="text"
+                            name="nama_prodi"
+                            class="form-control"
+                            placeholder="Masukkan Nama Program Studi"
+                            required>
+
+                    </div>
+
+                    <hr>
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary">
+
+                        Simpan
+
+                    </button>
+
+                    <a
+                        href="{{ url_for('prodi.prodi') }}"
+                        class="btn btn-secondary">
+
+                        Kembali
+
+                    </a>
+
+                    <button
+                        type="reset"
+                        class="btn btn-warning">
+
+                        Reset
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

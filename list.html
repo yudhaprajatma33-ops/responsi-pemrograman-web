@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Data Program Studi
+{% endblock %}
+
+{% block content %}
+
+<div class="card shadow">
+
+    <div class="card-header custom-card-header">
+
+        <div class="d-flex justify-content-between align-items-center">
+
+            <h4 class="mb-0">
+
+                Data Program Studi
+
+            </h4>
+
+            <a
+                href="{{ url_for('prodi.tambah_prodi') }}"
+                class="btn btn-light">
+
+                Tambah Program Studi
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="card-body">
+
+        <table class="table table-bordered table-hover">
+
+            <thead class="table-light">
+
+                <tr>
+
+                    <th width="80">
+
+                        ID
+
+                    </th>
+
+                    <th>
+
+                        Nama Program Studi
+
+                    </th>
+
+                    <th width="180">
+
+                        Aksi
+
+                    </th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for p in prodi %}
+
+                <tr>
+
+                    <td>
+
+                        {{ p.id }}
+
+                    </td>
+
+                    <td>
+
+                        {{ p.nama_prodi }}
+
+                    </td>
+
+                    <td>
+
+                        <a
+                            href="{{ url_for('prodi.edit_prodi', id=p.id) }}"
+                            class="btn btn-warning btn-sm">
+
+                            Edit
+
+                        </a>
+
+                        <a
+                            href="{{ url_for('prodi.hapus_prodi', id=p.id) }}"
+                            class="btn btn-danger btn-sm"
+                            onclick="return confirm('Hapus Program Studi ini?')">
+
+                            Hapus
+
+                        </a>
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+{% endblock %}

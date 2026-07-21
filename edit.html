@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Edit Program Studi
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+
+    <div class="col-md-6 mx-auto">
+
+        <div class="card shadow">
+
+            <div class="card-header bg-warning">
+
+                <h4 class="mb-0">
+
+                    Edit Program Studi
+
+                </h4>
+
+            </div>
+
+            <div class="card-body">
+
+                <form
+                    action="{{ url_for('prodi.update_prodi', id=prodi.id) }}"
+                    method="POST">
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+
+                            ID
+
+                        </label>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            value="{{ prodi.id }}"
+                            readonly>
+
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+
+                            Nama Program Studi
+
+                        </label>
+
+                        <input
+                            type="text"
+                            name="nama_prodi"
+                            class="form-control"
+                            value="{{ prodi.nama_prodi }}"
+                            required>
+
+                    </div>
+
+                    <hr>
+
+                    <button
+                        type="submit"
+                        class="btn btn-success">
+
+                        Update
+
+                    </button>
+
+                    <a
+                        href="{{ url_for('prodi.prodi') }}"
+                        class="btn btn-secondary">
+
+                        Kembali
+
+                    </a>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
