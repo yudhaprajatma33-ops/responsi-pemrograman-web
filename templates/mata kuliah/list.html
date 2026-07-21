@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Data Mata Kuliah
+{% endblock %}
+
+{% block content %}
+
+<div class="card shadow">
+
+    <div class="card-header custom-card-header">
+
+        <div class="d-flex justify-content-between align-items-center">
+
+            <h4 class="mb-0">
+
+                Data Mata Kuliah
+
+            </h4>
+
+            <a
+                href="{{ url_for('matakuliah.tambah_matakuliah') }}"
+                class="btn btn-light">
+
+                Tambah Mata Kuliah
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="card-body">
+
+        <table class="table table-bordered table-hover">
+
+            <thead class="table-light">
+
+                <tr>
+
+                    <th width="120">Kode</th>
+
+                    <th>Nama Mata Kuliah</th>
+
+                    <th width="80">SKS</th>
+
+                    <th width="180">Aksi</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for mk in matakuliah %}
+
+                <tr>
+
+                    <td>{{ mk.kode }}</td>
+
+                    <td>{{ mk.nama_mk }}</td>
+
+                    <td class="text-center">
+
+                        {{ mk.sks }}
+
+                    </td>
+
+                    <td>
+
+                        <a
+                            href="{{ url_for('matakuliah.edit_matakuliah', kode=mk.kode) }}"
+                            class="btn btn-warning btn-sm">
+
+                            Edit
+
+                        </a>
+
+                        <a
+                            href="{{ url_for('matakuliah.hapus_matakuliah', kode=mk.kode) }}"
+                            class="btn btn-danger btn-sm"
+                            onclick="return confirm('Hapus data mata kuliah?')">
+
+                            Hapus
+
+                        </a>
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+{% endblock %}

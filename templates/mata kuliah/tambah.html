@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Tambah Mata Kuliah
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+
+    <div class="col-md-8 mx-auto">
+
+        <div class="card shadow">
+
+            <div class="card-header custom-card-header">
+
+                <h4 class="mb-0">
+
+                    Tambah Mata Kuliah
+
+                </h4>
+
+            </div>
+
+            <div class="card-body">
+
+                <form
+                    action="{{ url_for('matakuliah.simpan_matakuliah') }}"
+                    method="POST">
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+
+                            Kode Mata Kuliah
+
+                        </label>
+
+                        <input
+                            type="text"
+                            name="kode"
+                            class="form-control"
+                            placeholder="Contoh : IF101"
+                            required>
+
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+
+                            Nama Mata Kuliah
+
+                        </label>
+
+                        <input
+                            type="text"
+                            name="nama_mk"
+                            class="form-control"
+                            required>
+
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+
+                            SKS
+
+                        </label>
+
+                        <input
+                            type="number"
+                            name="sks"
+                            class="form-control"
+                            min="1"
+                            max="6"
+                            required>
+
+                    </div>
+
+                    <hr>
+
+                    <button
+                        class="btn btn-primary">
+
+                        Simpan
+
+                    </button>
+
+                    <a
+                        href="{{ url_for('matakuliah.matakuliah') }}"
+                        class="btn btn-secondary">
+
+                        Kembali
+
+                    </a>
+
+                    <button
+                        type="reset"
+                        class="btn btn-warning">
+
+                        Reset
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
