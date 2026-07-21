@@ -1,0 +1,147 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Edit Mahasiswa
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+
+    <div class="col-md-8 mx-auto">
+
+        <div class="card shadow">
+
+            <div class="card-header bg-warning">
+
+                <h4 class="mb-0">
+
+                    Edit Data Mahasiswa
+
+                </h4>
+
+            </div>
+
+            <div class="card-body">
+
+                <form
+                    action="{{ url_for('mahasiswa.update_mahasiswa', nim=mahasiswa.nim) }}"
+                    method="POST">
+
+                    <!-- NIM -->
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+
+                            NIM
+
+                        </label>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            value="{{ mahasiswa.nim }}"
+                            readonly>
+
+                    </div>
+
+                    <!-- Nama -->
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+
+                            Nama Mahasiswa
+
+                        </label>
+
+                        <input
+                            type="text"
+                            name="nama"
+                            class="form-control"
+                            value="{{ mahasiswa.nama }}"
+                            required>
+
+                    </div>
+
+                    <!-- Email -->
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+
+                            Email
+
+                        </label>
+
+                        <input
+                            type="email"
+                            name="email"
+                            class="form-control"
+                            value="{{ mahasiswa.email }}">
+
+                    </div>
+
+                    <!-- Program Studi -->
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+
+                            Program Studi
+
+                        </label>
+
+                        <select
+                            name="prodi_id"
+                            class="form-select"
+                            required>
+
+                            {% for p in prodi %}
+
+                            <option
+                                value="{{ p.id }}"
+                                {% if p.id == mahasiswa.prodi_id %}
+                                    selected
+                                {% endif %}>
+
+                                {{ p.nama_prodi }}
+
+                            </option>
+
+                            {% endfor %}
+
+                        </select>
+
+                    </div>
+
+                    <hr>
+
+                    <button
+                        type="submit"
+                        class="btn btn-success">
+
+                        Update
+
+                    </button>
+
+                    <a
+                        href="{{ url_for('mahasiswa.mahasiswa') }}"
+                        class="btn btn-secondary">
+
+                        Kembali
+
+                    </a>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
