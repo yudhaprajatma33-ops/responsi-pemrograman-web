@@ -1,0 +1,212 @@
+:root{
+
+    --bg:#F3F0EE;
+
+    --surface:#FCFBFA;
+
+    --primary:#141413;
+
+    --accent:#CF4500;
+
+    --text:#141413;
+
+    --muted:#696969;
+
+    --radius:24px;
+
+}
+
+
+body{
+
+    background:var(--bg);
+
+    color:var(--text);
+
+    font-family:"Sofia Sans",sans-serif;
+
+}
+
+.card{
+
+    border:none;
+
+    border-radius:32px;
+
+    background:var(--surface);
+
+    box-shadow:
+
+        0 24px 48px rgba(0,0,0,.08);
+
+}
+
+.card-header{
+
+    background:transparent;
+
+    border:none;
+
+    font-weight:600;
+
+    padding:24px 24px 0 24px;
+
+}
+
+.table th{
+    vertical-align:middle;
+}
+
+.btn{
+
+    border-radius:20px;
+
+    padding:10px 24px;
+
+}
+
+.btn-primary{
+
+    background:#141413;
+
+    border:none;
+
+}
+
+.btn-primary:hover{
+
+    background:#000;
+
+}
+
+.table td{
+    vertical-align:middle;
+}
+
+.navbar-brand{
+    font-weight:bold;
+}
+
+footer{
+    font-size:14px;
+}
+
+.footer-custom{
+
+    background:#141413;
+
+    color:white;
+
+}
+
+
+.custom-navbar{
+
+    background:#FFFFFF;
+
+    border-radius:999px;
+
+    margin:20px auto;
+
+    max-width:1200px;
+
+    box-shadow:
+
+        0 4px 24px rgba(0,0,0,.04);
+
+}
+
+
+.form-control,
+.form-select{
+
+    border-radius:20px;
+
+    border:1px solid #ddd;
+
+    padding:12px 18px;
+
+}
+
+
+.table{
+
+    background:white;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+}
+
+.table thead{
+
+    background:#141413;
+
+    color:white;
+
+}
+
+
+@media(max-width:768px){
+
+    .custom-navbar{
+
+        margin:10px;
+
+    }
+
+    .card{
+
+        margin-bottom:20px;
+
+    }
+
+}
+
+
+.card{
+
+    transition:.3s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-4px);
+
+}
+
+/* ============================
+   Card Header
+============================ */
+
+.custom-card-header{
+
+    background:transparent;
+
+    color:var(--primary);
+
+    border:none;
+
+    padding:24px 28px 0 28px;
+
+}
+
+.custom-card-header h4{
+
+    margin:0;
+
+    font-size:1.3rem;
+
+    font-weight:700;
+
+}
+
+.custom-card-header h5{
+
+    margin:0;
+
+    font-weight:600;
+
+}
